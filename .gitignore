@@ -14,3 +14,6 @@
 *.iml
 .vscode/
 .fleet
+
+# Ignore logs
+web/app/debug.log
