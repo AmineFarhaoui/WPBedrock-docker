@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'roots/bedrock',
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
-        'reference' => 'b44a79e9ec30b189a1ac0d8fffdf5eb807e047a0',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -57,14 +57,14 @@
             'version' => 'dev-latest',
             'reference' => 'bac54e18ee767f065d88b81c8517fb21cd6414ab',
             'type' => 'metapackage',
-            'install_path' => NULL,
+            'install_path' => null,
             'aliases' => array(),
             'dev_requirement' => true,
         ),
         'roots/bedrock' => array(
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
-            'reference' => 'b44a79e9ec30b189a1ac0d8fffdf5eb807e047a0',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -78,6 +78,7 @@
             'install_path' => __DIR__ . '/../roots/bedrock-autoloader',
             'aliases' => array(),
             'dev_requirement' => false,
+            
         ),
         'roots/bedrock-disallow-indexing' => array(
             'pretty_version' => '2.0.0',
@@ -93,7 +94,7 @@
             'version' => '6.4.3.0',
             'reference' => '41ff6e23ccbc3a1691406d69fe8c211a225514e2',
             'type' => 'metapackage',
-            'install_path' => NULL,
+            'install_path' => null,
             'aliases' => array(),
             'dev_requirement' => false,
         ),
