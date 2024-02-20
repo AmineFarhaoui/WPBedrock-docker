@@ -20,3 +20,7 @@ wp login install --activate --yes --skip-plugins --skip-themes
 wp login as 1
 
 /usr/bin/supervisord -c /etc/supervisord.conf > /dev/null
+
+chown -R www-data:www-data /srv/bedrock/app/*/*
+find /srv/bedrock/app/*/*/ -type d -exec chmod 0755 {} \;
+find /srv/bedrock/app/*/*/ -type f -exec chmod 644 {} \;

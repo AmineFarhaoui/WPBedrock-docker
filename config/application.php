@@ -57,6 +57,8 @@ if (!env('WP_ENVIRONMENT_TYPE') && in_array(WP_ENV, ['production', 'staging', 'd
     Config::define('WP_ENVIRONMENT_TYPE', WP_ENV);
 }
 
+Config::define('FS_METHOD', 'direct');
+
 /**
  * URLs
  */

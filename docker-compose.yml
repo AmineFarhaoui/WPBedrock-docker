@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: ./.docker/build/bedrock.dockerfile
+    restart: always
     links:
       - mysql
     ports:
@@ -16,34 +17,33 @@ services:
       - mysql
 
   mysql:
-      image: 'mysql/mysql-server:8.0'
-      ports:
-          - '3306:3306'
-      environment:
-          MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-          MYSQL_ROOT_HOST: '%'
-          MYSQL_DATABASE: '${DB_NAME}'
-          # MYSQL_USER: '${DB_USERNAME}' # Not needed as root user is used
-          MYSQL_PASSWORD: '${DB_PASSWORD}'
-          MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      volumes:
-          - 'bedrock-mysql:/var/lib/mysql'
-      networks:
-          - bedrock
-      healthcheck:
-          test:
-              - CMD
-              - mysqladmin
-              - ping
-              - '-p${DB_PASSWORD}'
-          retries: 3
-          timeout: 5s
+    image: 'mysql/mysql-server:8.0'
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: '${DB_NAME}'
+      # MYSQL_USER: '${DB_USERNAME}' # Not needed as root user is used
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - 'bedrock-mysql:/var/lib/mysql'
+    networks:
+      - bedrock
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - '-p${DB_PASSWORD}'
+      retries: 3
+      timeout: 5s
 
 volumes:
-    bedrock-mysql:
-        driver: local
+  bedrock-mysql:
+    driver: local
 
 networks:
   bedrock:
-      driver: bridge
-
+    driver: bridge
